@@ -9,20 +9,20 @@
       <stop offset="83.33%" stop-color="#8000ff"/>
       <stop offset="100%" stop-color="#ff0000"/>
     </linearGradient>
+    <filter id="blur">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="3"/>
+    </filter>
   </defs>
   <rect width="394" height="250" fill="#000000" fill-opacity="0.5" rx="20" ry="20" />
-  <path d="M20,1 H374 A19,19 0 0 1 393,20 V230 A19,19 0 0 1 374,249 H20 A19,19 0 0 1 1,230 V20 A19,19 0 0 1 20,1 Z" 
-        fill="none" 
-        stroke="url(#rainbow)" 
-        stroke-width="2" 
-        stroke-opacity="0.7"
-        filter="url(#glow)"/>
-  <filter id="glow">
-    <feGaussianBlur stdDeviation="2.5" result="coloredBlur"/>
-    <feMerge>
-      <feMergeNode in="coloredBlur"/>
-      <feMergeNode in="SourceGraphic"/>
-    </feMerge>
-  </filter>
+  <g filter="url(#blur)">
+    <path d="M20,1 H374 A19,19 0 0 1 393,20 V230 A19,19 0 0 1 374,249 H20 A19,19 0 0 1 1,230 V20 A19,19 0 0 1 20,1 Z" 
+          fill="none" 
+          stroke="url(#rainbow)" 
+          stroke-width="4" 
+          stroke-opacity="0.5">
+      <animate attributeName="stroke-dashoffset" from="0" to="1286" dur="7s" repeatCount="indefinite" />
+      <animate attributeName="stroke-dasharray" values="0 1286;1286 1286;0 1286" dur="7s" repeatCount="indefinite" />
+    </path>
+  </g>
   <text x="197" y="40" font-family="Montserrat" font-size="100" fill="#FFFFFF" text-anchor="middle" dominant-baseline="middle">Unit-X</text>
 </svg>
